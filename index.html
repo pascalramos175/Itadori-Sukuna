@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yuji Itadori — Ficha de Viajante</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Antique&family=Noto+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* =====================================================================
+   TOKENS — paleta e tipografia
+===================================================================== */
+:root{
+  --void:      #0c0a10;
+  --panel:     #17121a;
+  --panel-2:   #1f1822;
+  --line:      #382a30;
+  --blood:     #7d1f27;
+  --blood-br:  #d2323b;
+  --curse:     #5a2f52;
+  --curse-br:  #9a5a8c;
+  --bone:      #e9dfc9;
+  --text:      #ece4db;
+  --text-dim:  #9c8f88;
+  --gold:      #b6912f;
+  --ok:        #4f8f5b;
+
+  --f-display: 'Zen Antique', serif;
+  --f-body:    'Noto Sans', sans-serif;
+  --f-mono:    'JetBrains Mono', monospace;
+}
+
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+
+body{
+  background:
+    radial-gradient(ellipse 900px 500px at 50% -10%, rgba(125,31,39,.18), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 100% 20%, rgba(90,47,82,.14), transparent 55%),
+    var(--void);
+  color:var(--text);
+  font-family:var(--f-body);
+  line-height:1.6;
+  padding:0 0 80px;
+}
+
+::selection{ background:var(--blood); color:var(--bone); }
+
+.wrap{ max-width:960px; margin:0 auto; padding:0 20px; }
+
+h1,h2,h3{ font-family:var(--f-display); font-weight:400; letter-spacing:.02em; margin:0; }
+
+/* =====================================================================
+   CABEÇALHO
+===================================================================== */
+header.sheet-head{
+  position:relative; overflow:hidden;
+  border-bottom:1px solid var(--line);
+  padding:56px 0 40px;
+}
+header.sheet-head::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><g fill='none' stroke='%23d2323b' stroke-width='1.4'><circle cx='100' cy='100' r='92'/><circle cx='100' cy='100' r='70'/><path d='M100 8 C130 40 160 60 192 100 C160 140 130 160 100 192 C70 160 40 140 8 100 C40 60 70 40 100 8 Z'/><path d='M100 30 C118 55 140 70 170 100 C140 130 118 145 100 170 C82 145 60 130 30 100 C60 70 82 55 100 30 Z'/></g></svg>");
+  background-repeat:no-repeat; background-position:center; background-size:640px;
+  opacity:.08;
+}
+.head-grid{
+  position:relative; display:grid; grid-template-columns:180px 1fr; gap:34px; align-items:center;
+}
+.portrait-slot{
+  width:180px; height:180px; border-radius:50%;
+  border:3px solid var(--blood-br);
+  box-shadow:0 0 0 6px rgba(125,31,39,.15), 0 0 40px rgba(210,50,59,.25);
+  overflow:hidden; background:var(--panel-2);
+  display:flex; align-items:center; justify-content:center;
+}
+.portrait-slot img{ width:100%; height:100%; object-fit:cover; display:block; }
+.portrait-slot .ph{ color:var(--text-dim); font-size:.72rem; text-align:center; padding:10px; font-family:var(--f-mono); }
+
+.head-info .eyebrow{
+  font-family:var(--f-mono); font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--blood-br); margin-bottom:6px;
+}
+.head-info h1{ font-size:2.6rem; color:var(--bone); }
+.head-info .sub{ color:var(--text-dim); margin-top:4px; font-size:.98rem; }
+
+.tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+.tag{
+  font-family:var(--f-mono); font-size:.72rem; padding:5px 11px; border-radius:3px;
+  border:1px solid var(--line); color:var(--text-dim); background:rgba(255,255,255,.02);
+}
+.tag b{ color:var(--bone); font-weight:600; }
+
+/* =====================================================================
+   SEÇÕES GENÉRICAS
+===================================================================== */
+section{ padding:40px 0; border-bottom:1px solid var(--line); }
+section.no-border{ border-bottom:none; }
+
+.sec-title{ display:flex; align-items:baseline; gap:14px; margin-bottom:24px; }
+.sec-title .num{ font-family:var(--f-mono); color:var(--blood-br); font-size:.85rem; }
+.sec-title h2{ font-size:1.5rem; color:var(--bone); }
+.sec-title .rule{ flex:1; height:1px; background:var(--line); }
+
+p.lede{ color:var(--text-dim); max-width:640px; }
+
+/* =====================================================================
+   HISTÓRIA
+===================================================================== */
+.story-box{ background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:26px 28px; }
+.story-box p{ margin:0 0 14px; color:#cfc6bc; font-size:.94rem; }
+.story-box p:last-child{ margin-bottom:0; }
+
+.hook-box{
+  margin-top:18px; border:1px solid var(--blood); background:rgba(125,31,39,.10);
+  border-radius:6px; padding:20px 24px;
+}
+.hook-box .eyebrow{ font-family:var(--f-mono); font-size:.7rem; letter-spacing:.14em; color:var(--blood-br); text-transform:uppercase; margin-bottom:8px;}
+.hook-box p{ color:var(--bone); font-size:.95rem; margin:0; }
+
+/* =====================================================================
+   RECURSOS (PV / EE / PPM)
+===================================================================== */
+.res-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.res-card{ background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:18px 20px; }
+.res-card .label{ font-family:var(--f-mono); font-size:.72rem; letter-spacing:.1em; color:var(--text-dim); text-transform:uppercase; }
+.res-card .value{ font-family:var(--f-mono); font-size:1.9rem; color:var(--bone); margin-top:4px; }
+.res-card .value span{ font-size:1rem; color:var(--text-dim); }
+.res-bar{ height:8px; border-radius:4px; background:var(--panel-2); margin-top:10px; overflow:hidden; }
+.res-bar i{ display:block; height:100%; background:linear-gradient(90deg,var(--blood),var(--blood-br)); }
+.res-card.ee .res-bar i{ background:linear-gradient(90deg,#3b6b7d,#6fb8cf); }
+.res-card.ppm .res-bar i{ background:linear-gradient(90deg,var(--gold),#e0c15a); }
+.res-controls{ display:flex; gap:8px; margin-top:12px; }
+
+button.pill{
+  font-family:var(--f-mono); font-size:.78rem; border:1px solid var(--line); background:var(--panel-2);
+  color:var(--text); padding:6px 12px; border-radius:20px; cursor:pointer; transition:.15s;
+}
+button.pill:hover{ border-color:var(--blood-br); color:var(--bone); }
+button.pill:active{ transform:scale(.95); }
+
+/* =====================================================================
+   ATRIBUTOS
+===================================================================== */
+.attr-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.attr-card{ background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:18px; text-align:center; }
+.attr-card .name{ font-family:var(--f-mono); font-size:.78rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:.08em; }
+.attr-card .num{ font-family:var(--f-display); font-size:2.1rem; color:var(--bone); margin:6px 0; }
+.pips{ display:flex; justify-content:center; gap:5px; }
+.pip{ width:11px; height:11px; border-radius:50%; border:1.5px solid var(--blood-br); }
+.pip.on{ background:var(--blood-br); }
+
+/* =====================================================================
+   PERÍCIAS
+===================================================================== */
+.skill-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+.skill-cat{ background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:16px 18px; }
+.skill-cat h3{ font-family:var(--f-mono); font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; color:var(--curse-br); margin-bottom:10px; }
+.skill-cat ul{ list-style:none; margin:0; padding:0; }
+.skill-cat li{ display:flex; align-items:center; gap:8px; padding:5px 0; font-size:.86rem; color:var(--text-dim); border-bottom:1px dashed rgba(255,255,255,.05); }
+.skill-cat li:last-child{ border-bottom:none; }
+.skill-cat li.trained{ color:var(--bone); font-weight:600; }
+.skill-cat li .mark{ font-family:var(--f-mono); width:16px; text-align:center; color:var(--text-dim); }
+.skill-cat li.trained .mark{ color:var(--blood-br); }
+
+/* =====================================================================
+   SUKUNA — Rei das Maldições
+===================================================================== */
+.sukuna-card{
+  position:relative; overflow:hidden;
+  border:1px solid var(--curse); border-radius:8px;
+  background:
+    radial-gradient(circle at 85% 10%, rgba(90,47,82,.30), transparent 55%),
+    radial-gradient(circle at 10% 90%, rgba(125,31,39,.20), transparent 55%),
+    var(--panel);
+}
+.sukuna-card::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><path d='M100 8 C130 40 160 60 192 100 C160 140 130 160 100 192 C70 160 40 140 8 100 C40 60 70 40 100 8 Z' fill='none' stroke='%239a5a8c' stroke-width='1'/></svg>");
+  background-position:right -40px top -40px; background-size:280px; background-repeat:no-repeat; opacity:.18;
+}
+.sukuna-top{
+  position:relative; display:grid; grid-template-columns:150px 1fr; gap:26px;
+  padding:30px 30px 22px; border-bottom:1px solid rgba(154,90,140,.25);
+}
+@media(max-width:640px){ .sukuna-top{ grid-template-columns:1fr; text-align:center; } }
+.sukuna-portrait{
+  width:150px; height:150px; border-radius:10px; border:2px solid var(--curse-br);
+  background:var(--panel-2); overflow:hidden; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 0 30px rgba(154,90,140,.20);
+}
+.sukuna-portrait img{ width:100%; height:100%; object-fit:cover; display:block; }
+.sukuna-portrait .ph{ font-family:var(--f-mono); font-size:.68rem; color:var(--text-dim); text-align:center; padding:8px; }
+.sukuna-top h2{ font-size:1.5rem; color:var(--bone); }
+.sukuna-top .sub{ font-family:var(--f-mono); font-size:.72rem; color:var(--curse-br); text-transform:uppercase; letter-spacing:.1em; margin-top:2px; }
+.sukuna-top p{ font-size:.88rem; color:var(--text-dim); margin-top:12px; max-width:560px; }
+
+.sukuna-mid{ position:relative; padding:26px 30px; }
+.frag-head{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.frag-head .label{ font-family:var(--f-mono); font-size:.72rem; letter-spacing:.1em; color:var(--text-dim); text-transform:uppercase; }
+.frag-head .count{ font-family:var(--f-mono); font-size:1.3rem; color:var(--bone); }
+.frag-bar{ height:9px; border-radius:5px; background:var(--panel-2); margin-top:10px; overflow:hidden; border:1px solid var(--line); }
+.frag-bar i{ display:block; height:100%; background:linear-gradient(90deg,var(--curse),var(--blood-br)); }
+.frag-controls{ display:flex; gap:8px; margin-top:12px; }
+.bonus-line{ margin-top:14px; font-family:var(--f-mono); font-size:.85rem; color:var(--bone); }
+.bonus-line b{ color:var(--blood-br); }
+
+.trigger-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:26px; }
+@media(max-width:640px){ .trigger-grid{ grid-template-columns:1fr; } }
+.trigger-box{ background:rgba(0,0,0,.18); border:1px solid var(--line); border-radius:6px; padding:16px 18px; }
+.trigger-box .eyebrow{ font-family:var(--f-mono); font-size:.68rem; letter-spacing:.1em; color:var(--curse-br); text-transform:uppercase; margin-bottom:6px; }
+.trigger-box p{ font-size:.85rem; color:var(--text-dim); margin:0; }
+
+.sukuna-bottom{ position:relative; padding:26px 30px 30px; border-top:1px solid rgba(154,90,140,.25); }
+.sukuna-bottom .eyebrow{ font-family:var(--f-mono); font-size:.72rem; letter-spacing:.12em; color:var(--curse-br); text-transform:uppercase; margin-bottom:14px; }
+.unlock-list{ display:flex; flex-direction:column; gap:0; }
+.unlock-row{
+  display:grid; grid-template-columns:56px 1fr auto; align-items:center; gap:16px;
+  padding:12px 0; border-bottom:1px dashed rgba(255,255,255,.06);
+}
+.unlock-row:last-child{ border-bottom:none; }
+.unlock-thumb{
+  width:56px; height:56px; border-radius:6px; background:var(--panel-2); border:1px solid var(--line);
+  overflow:hidden; display:flex; align-items:center; justify-content:center;
+}
+.unlock-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+.unlock-thumb .ph{ font-size:.55rem; font-family:var(--f-mono); color:var(--text-dim); text-align:center; }
+.unlock-name{ font-family:var(--f-body); font-weight:600; font-size:.92rem; color:var(--text-dim); }
+.unlock-row.on .unlock-name{ color:var(--bone); }
+.unlock-req{ font-family:var(--f-mono); font-size:.72rem; padding:4px 10px; border-radius:20px; border:1px solid var(--line); color:var(--text-dim); white-space:nowrap; }
+.unlock-row.on .unlock-req{ border-color:var(--curse-br); color:var(--curse-br); }
+
+.omen{ margin-top:22px; border-top:1px solid rgba(154,90,140,.25); padding-top:18px; }
+.omen p{ font-family:var(--f-display); font-size:1rem; color:var(--curse-br); text-align:center; letter-spacing:.02em; margin:0; }
+
+/* =====================================================================
+   DOMÍNIO — card em destaque
+===================================================================== */
+.domain-card{ border:1px solid var(--curse); border-radius:8px; overflow:hidden; background:var(--panel); }
+.domain-img-slot{
+  width:100%; aspect-ratio:16/6; background:var(--panel-2);
+  display:flex; align-items:center; justify-content:center; overflow:hidden; border-bottom:1px solid var(--line);
+}
+.domain-img-slot img{ width:100%; height:100%; object-fit:cover; display:block; }
+.domain-img-slot .ph{ font-family:var(--f-mono); font-size:.75rem; color:var(--text-dim); }
+.domain-content{ padding:26px 28px; }
+.domain-content h3{ font-family:var(--f-display); color:var(--bone); font-size:1.3rem; }
+.domain-content .sub{ font-family:var(--f-mono); font-size:.75rem; color:var(--curse-br); text-transform:uppercase; letter-spacing:.1em; margin-top:2px; }
+.domain-content ul{ margin:16px 0 0; padding-left:20px; color:#cfc6bc; font-size:.88rem; }
+.domain-content li{ margin-bottom:6px; }
+.domain-meta{ display:flex; gap:22px; margin-top:18px; flex-wrap:wrap; }
+.domain-meta div{ font-family:var(--f-mono); font-size:.78rem; color:var(--text-dim); }
+.domain-meta b{ color:var(--bone); display:block; font-size:.95rem; }
+
+/* =====================================================================
+   EQUIPAMENTOS / HABILIDADES — cartas
+===================================================================== */
+.card-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; }
+.item-card{ background:var(--panel); border:1px solid var(--line); border-radius:8px; overflow:hidden; display:flex; flex-direction:column; }
+.item-img-slot{ width:100%; aspect-ratio:4/3; background:var(--panel-2); overflow:hidden; display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--line); }
+.item-img-slot img{ width:100%; height:100%; object-fit:cover; display:block; }
+.item-img-slot .ph{ font-family:var(--f-mono); font-size:.7rem; color:var(--text-dim); text-align:center; padding:8px;}
+.item-body{ padding:18px 20px; display:flex; flex-direction:column; gap:10px; flex:1; }
+.item-body h3{ font-family:var(--f-display); font-size:1.1rem; color:var(--bone); }
+.item-body p{ font-size:.84rem; color:var(--text-dim); margin:0; }
+.item-foot{ margin-top:auto; padding-top:10px; border-top:1px dashed var(--line); }
+.cooldown{ font-family:var(--f-mono); font-size:.72rem; color:var(--gold); }
+
+/* =====================================================================
+   GALERIA
+===================================================================== */
+.gallery-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; }
+.gallery-slot{ aspect-ratio:1; background:var(--panel); border:1px dashed var(--line); border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+.gallery-slot img{ width:100%; height:100%; object-fit:cover; display:block; }
+.gallery-slot .ph{ font-family:var(--f-mono); font-size:.68rem; color:var(--text-dim); text-align:center; padding:6px; }
+
+/* =====================================================================
+   RODAPÉ
+===================================================================== */
+footer{ text-align:center; padding:36px 0 0; color:var(--text-dim); font-family:var(--f-mono); font-size:.72rem; letter-spacing:.06em; }
+
+@media(max-width:640px){
+  .head-grid{ grid-template-columns:1fr; text-align:center; }
+  .portrait-slot{ margin:0 auto; }
+  .res-grid{ grid-template-columns:1fr; }
+  .attr-grid{ grid-template-columns:repeat(2,1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- ===================================================================
+     CABEÇALHO
+=================================================================== -->
+<header class="sheet-head">
+  <div class="wrap head-grid">
+    <div class="portrait-slot" id="slot-portrait">
+      <div class="ph">retrato<br>principal</div>
+    </div>
+    <div class="head-info">
+      <div class="eyebrow">Perfil do Viajante</div>
+      <h1>Yuji Itadori</h1>
+      <div class="sub">68 anos · 1,73 m · Feiticeiro Jujutsu</div>
+      <div class="tag-row">
+        <span class="tag">Universo · <b>Jujutsu Kaisen</b></span>
+        <span class="tag">Arquétipo · <b>Feiticeiro Jujutsu</b></span>
+        <span class="tag">Marcador de Caos · <b>cicatrizes na boca e no olho</b></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ================= RECURSOS ================= -->
+  <section>
+    <div class="sec-title"><span class="num">01</span><h2>Status e Recursos</h2><span class="rule"></span></div>
+    <div class="res-grid">
+      <div class="res-card pv">
+        <div class="label">Pontos de Vida</div>
+        <div class="value"><span id="pv-val">30</span><span>/30</span></div>
+        <div class="res-bar"><i id="pv-bar" style="width:100%"></i></div>
+        <div class="res-controls">
+          <button class="pill" onclick="adjustRes('pv',-1)">−1</button>
+          <button class="pill" onclick="adjustRes('pv',1)">+1</button>
+          <button class="pill" onclick="resetRes('pv')">reset</button>
+        </div>
+      </div>
+      <div class="res-card ee">
+        <div class="label">Estabilidade Espacial</div>
+        <div class="value"><span id="ee-val">23</span><span>/23</span></div>
+        <div class="res-bar"><i id="ee-bar" style="width:100%"></i></div>
+        <div class="res-controls">
+          <button class="pill" onclick="adjustRes('ee',-1)">−1</button>
+          <button class="pill" onclick="adjustRes('ee',1)">+1</button>
+          <button class="pill" onclick="resetRes('ee')">reset</button>
+        </div>
+      </div>
+      <div class="res-card ppm">
+        <div class="label">Pontos de Poder Multiversal</div>
+        <div class="value"><span id="ppm-val">5</span><span>/5</span></div>
+        <div class="res-bar"><i id="ppm-bar" style="width:100%"></i></div>
+        <div class="res-controls">
+          <button class="pill" onclick="adjustRes('ppm',-1)">−1</button>
+          <button class="pill" onclick="adjustRes('ppm',1)">+1</button>
+          <button class="pill" onclick="resetRes('ppm')">reset</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HISTÓRIA ================= -->
+  <section>
+    <div class="sec-title"><span class="num">02</span><h2>História</h2><span class="rule"></span></div>
+    <div class="story-box">
+      <p>Yuji Itadori era um estudante do ensino médio com força física muito acima do normal, mas preferia levar uma vida simples ao lado do avô, Wasuke Itadori, cujo último conselho — "use sua força para ajudar as pessoas e não morra sozinho" — passou a guiar sua vida.</p>
+      <p>Tudo mudou quando um dedo amaldiçoado de Ryomen Sukuna apareceu em sua escola. Para salvar os amigos, Yuji o engoliu e, contra todas as expectativas, manteve o controle do próprio corpo. Isso chamou a atenção de Satoru Gojo, que o levou para a Escola Técnica de Jujutsu de Tóquio como hospedeiro condenado à morte — sentença adiada até que consumisse os vinte dedos de Sukuna.</p>
+      <p>Ao lado de Megumi Fushiguro e Nobara Kugisaki, Yuji enfrentou maldições cada vez mais poderosas — Mahito, Hanami, Jogo, Choso — acumulando perdas e culpa. No Incidente de Shibuya, Sukuna assumiu seu corpo e destruiu parte da cidade; Gojo foi selado, Nobara ficou gravemente ferida e Nanami morreu diante dele.</p>
+      <p>Caçado pelo mundo Jujutsu, participou do Jogo do Abate contra os planos de Kenjaku — que revelou ter participação direta em seu nascimento. Mais tarde, Sukuna abandonou seu corpo pelo de Megumi, e Yuji, livre do Rei das Maldições pela primeira vez, continuou evoluindo: Golpe Divergente, Black Flash consistente e novas técnicas de sangue.</p>
+      <p>Na batalha final, lutou ao lado de seus aliados e ajudou a derrotar Sukuna de vez. Seguindo sempre as palavras do avô, tornou-se um verdadeiro feiticeiro — usando sua força para proteger os outros e dar às vítimas das maldições uma morte digna.</p>
+    </div>
+    <div class="hook-box">
+      <div class="eyebrow">Situação atual · o gancho</div>
+      <p>Meu universo começou a sofrer explosões — um monte de maldições e humanos morrendo, meus amigos morrendo. Consegui fugir de algum jeito; algo me ajudou, mas desmaiei na hora e não sei o que foi. Meu objetivo agora é descobrir o que é esse "Armagedom".</p>
+    </div>
+  </section>
+
+  <!-- ================= ATRIBUTOS ================= -->
+  <section>
+    <div class="sec-title"><span class="num">03</span><h2>Atributos</h2><span class="rule"></span></div>
+    <div class="attr-grid" id="attr-grid"></div>
+  </section>
+
+  <!-- ================= PERÍCIAS ================= -->
+  <section>
+    <div class="sec-title"><span class="num">04</span><h2>Perícias</h2><span class="rule"></span></div>
+    <p class="lede">Perícias treinadas concedem +1 dado bônus na rolagem.</p>
+    <div class="skill-grid" id="skill-grid"></div>
+  </section>
+
+  <!-- ================= SUKUNA — REI DAS MALDIÇÕES ================= -->
+  <section>
+    <div class="sec-title"><span class="num">05</span><h2>Rei das Maldições</h2><span class="rule"></span></div>
+
+    <div class="sukuna-card">
+
+      <div class="sukuna-top">
+        <div class="sukuna-portrait" id="slot-sukuna-retrato">
+          <div class="ph">retrato de<br>sukuna</div>
+        </div>
+        <div>
+          <h2>Ryomen Sukuna</h2>
+          <div class="sub">selado dentro do recipiente</div>
+          <p>Dentro deste recipiente habita Ryomen Sukuna, o Rei das Maldições. Seu poder permanece selado em vinte Fragmentos, espalhados pelo mundo e entregues pelo mestre ao longo da campanha. O personagem inicia sua jornada possuindo dois Fragmentos.</p>
+        </div>
+      </div>
+
+      <div class="sukuna-mid">
+        <div class="frag-head">
+          <span class="label">Fragmentos reunidos</span>
+          <span class="count"><span id="frag-val">2</span> / 20</span>
+        </div>
+        <div class="frag-bar"><i id="frag-bar" style="width:10%"></i></div>
+        <div class="frag-controls">
+          <button class="pill" onclick="adjustFrag(-1)">− fragmento</button>
+          <button class="pill" onclick="adjustFrag(1)">+ fragmento</button>
+        </div>
+        <div class="bonus-line">Bônus ao despertar Sukuna: <b id="bonus-val">+4</b> em todos os atributos <span style="color:var(--text-dim)">(+2 base, +1 por Fragmento consumido)</span></div>
+
+        <div class="trigger-grid">
+          <div class="trigger-box">
+            <div class="eyebrow">Abaixo de 10% de PV</div>
+            <p>O Rei das Maldições assume imediatamente o controle do corpo por 5 turnos, agindo conforme sua própria vontade.</p>
+          </div>
+          <div class="trigger-box">
+            <div class="eyebrow">Acima de 10% de PV</div>
+            <p>Realiza-se um Teste de Vontade contra a influência de Sukuna. Em caso de sucesso, o controle é mantido durante a transformação; em caso de falha, Sukuna assume o corpo pelo tempo determinado pelo mestre ou pelos efeitos da habilidade.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sukuna-bottom">
+        <div class="eyebrow">Técnicas desbloqueadas por Fragmento</div>
+        <div class="unlock-list" id="unlock-list"></div>
+        <div class="omen">
+          <p>"O recipiente busca o poder absoluto... mas cada Fragmento aproxima o inevitável."</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= DOMÍNIO ================= -->
+  <section>
+    <div class="sec-title"><span class="num">06</span><h2>Habilidade Única de Origem</h2><span class="rule"></span></div>
+    <div class="domain-card">
+      <div class="domain-img-slot" id="slot-domain">
+        <div class="ph">arte da expansão de domínio</div>
+      </div>
+      <div class="domain-content">
+        <h3>Jardim das Almas Perdidas</h3>
+        <div class="sub">Expansão de Domínio</div>
+        <ul>
+          <li>Todos os inimigos dentro do domínio têm a velocidade reduzida em 2 pontos.</li>
+          <li>Ataques não podem ser esquivados — ainda podem ser bloqueados ou defendidos com habilidades.</li>
+          <li>Todo ataque que acerta causa +4 de dano na alma, ignorando reduções de dano mágico comuns.</li>
+          <li>No início de cada turno inimigo, eles sofrem 2 de dano espiritual.</li>
+          <li>Ao encerrar: −2 de Agilidade por 1 turno, devido ao desgaste da expansão.</li>
+        </ul>
+        <div class="domain-meta">
+          <div>Custo<b>2 de Dobra</b></div>
+          <div>Duração<b>2 turnos (conversa) / 4 turnos (luta)</b></div>
+          <div>Encerramento<b>à vontade do dono</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EQUIPAMENTOS ================= -->
+  <section>
+    <div class="sec-title"><span class="num">07</span><h2>Item de Relíquia &amp; Equipamentos</h2><span class="rule"></span></div>
+    <div class="card-grid">
+
+      <div class="item-card">
+        <div class="item-img-slot" id="slot-manoplas"><div class="ph">manoplas shinjuku</div></div>
+        <div class="item-body">
+          <h3>Manoplas Shinjuku</h3>
+          <p>Arma média · dano 1d6. Uso contínuo por 6 turnos, com 4 turnos de cooldown.</p>
+          <div class="item-foot"><span class="cooldown">cooldown · 4 turnos</span></div>
+        </div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-img-slot" id="slot-walkie"><div class="ph">walk talk · mechamaru</div></div>
+        <div class="item-body">
+          <h3>Walk Talk (Mechamaru)</h3>
+          <p>Recebo instruções — para onde ir, o que fazer, quem é o alvo certo — dentro do meu limite de informação.</p>
+          <div class="item-foot"><span class="cooldown">cooldown · 8 turnos para 2 instruções</span></div>
+        </div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-img-slot" id="slot-roda"><div class="ph">roda de oito cabos</div></div>
+        <div class="item-body">
+          <h3>Roda de Oito Cabos</h3>
+          <p>Arrancada da cabeça de Mahoraga. Adapta uma parcela do dano recebido, determinada em 1d10 a cada 10%.</p>
+          <div class="item-foot"><span class="cooldown">cooldown · 1x por batalha</span></div>
+        </div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-img-slot" id="slot-megafone"><div class="ph">megafone da fala amaldiçoada</div></div>
+        <div class="item-body">
+          <h3>Megafone da Fala Amaldiçoada</h3>
+          <p>O que eu falo nele, acontece. Ordens leves custam 1d4 de dano em mim; ordens pesadas custam 1d6 — só posso usar uma ordem letal com menos de 5 PV.</p>
+          <div class="item-foot"><span class="cooldown">cooldown · 10 turnos</span></div>
+        </div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-img-slot" id="slot-dedo"><div class="ph">fragmento de sukuna</div></div>
+        <div class="item-body">
+          <h3>Fragmento de Sukuna</h3>
+          <p>Um fragmento do poder do Rei das Maldições, selado dentro do recipiente. Ver mecânica completa na seção "Rei das Maldições".</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= TÉCNICAS ================= -->
+  <section>
+    <div class="sec-title"><span class="num">08</span><h2>Técnicas</h2><span class="rule"></span></div>
+    <div class="card-grid">
+
+      <div class="item-card">
+        <div class="item-body">
+          <h3>Punho Divergente / Kokusen</h3>
+          <p>Golpe de energia amaldiçoada nos punhos que, ao se concentrar, evolui para o Kokusen — dano com delay. Pode ser repetido em sequência enquanto o estado de concentração se mantiver.</p>
+        </div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-body">
+          <h3>Desmantelar</h3>
+          <p>Seis cortes certeiros no alvo, técnica herdada de Sukuna.</p>
+        </div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-body">
+          <h3>Piercing Blood</h3>
+          <p>Rajada de sangue disparada como uma flecha saída de um canhão.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= GALERIA ================= -->
+  <section class="no-border">
+    <div class="sec-title"><span class="num">09</span><h2>Galeria</h2><span class="rule"></span></div>
+    <p class="lede">Espaços extras para arte de referência — cole as URLs no bloco <code>IMAGENS</code>, no topo do JavaScript.</p>
+    <div class="gallery-grid">
+      <div class="gallery-slot" id="slot-g1"><div class="ph">extra 1</div></div>
+      <div class="gallery-slot" id="slot-g2"><div class="ph">extra 2</div></div>
+      <div class="gallery-slot" id="slot-g3"><div class="ph">extra 3</div></div>
+      <div class="gallery-slot" id="slot-g4"><div class="ph">extra 4</div></div>
+    </div>
+  </section>
+
+  <footer>ficha de viajante · jardim das almas perdidas</footer>
+</div>
+
+<script>
+/* =====================================================================
+   IMAGENS
+   Cole suas URLs abaixo, entre as aspas. Deixe "" (vazio) para manter
+   o espaço reservado com o rótulo do que deveria ir ali.
+===================================================================== */
+const IMAGENS = {
+
+  retrato_principal:      "https://media.discordapp.net/attachments/1531457215549018274/1534255586433302568/453c574150a4abad3b6413f886f1c5f8.jpg?ex=6a73765c&is=6a7224dc&hm=df9fc1ec3924ddf4a56c57c1086b6c9f23718d09585371bd3202410460e8774f&=&format=webp&width=680&height=1024",   // retrato de corpo inteiro / rosto do Yuji
+
+  sukuna_retrato:          "https://i.pinimg.com/736x/fc/ce/92/fcce92b6dd2ebb5259426a424a6f983d.jpg",   // retrato de Ryomen Sukuna
+  sukuna_desmantelar:       "https://i.redd.it/c5giwhjo324f1.jpeg",   // arte para a técnica desbloqueada com 2 Fragmentos
+  sukuna_dominio_fechado:   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIa-hrM2hTRVN4s7EkZzZTWMeXXOawvD0--e3LOIGv3Q&s",   // arte para a Expansão de Domínio Fechada (5 Fragmentos)
+  sukuna_cleave:            "https://static.wikia.nocookie.net/jujutsukaisen/images/8/80/Yuji_%C3%A9_acertado_pelo_Partir.webp/revision/latest?cb=20250205234800&path-prefix=pt-br",   // arte para a técnica Cleave (10 Fragmentos)
+  sukuna_fuga:              "https://criticalhits.com.br/wp-content/uploads/2021/01/Sukuna_fire.jpg",   // arte para a técnica Fuga (15 Fragmentos)
+  sukuna_dominio_completo:  "https://static.wikia.nocookie.net/rpg-the-king-of-cartoons-2/images/c/c1/Malevolent_Shrine.png/revision/latest?cb=20211211130126&path-prefix=pt-br",   // arte para a Expansão de Domínio Completa (20 Fragmentos)
+
+  expansao_dominio:       "https://static.wikia.nocookie.net/jujutsukaisen/images/4/42/Ambiente_do_dom%C3%ADnio_de_Yuji.webp/revision/latest?cb=20241025023352&path-prefix=pt-br",   // arte do "Jardim das Almas Perdidas" (Yuji)
+
+  manoplas_shinjuku:      "https://media.discordapp.net/attachments/1531457215549018274/1534255445630255194/c04221334444cff9eb2ea530dc521bd0.jpg?ex=6a73763b&is=6a7224bb&hm=5b3b23f908162f523c756f1c2600ac33f82be2ee95b31ba52112902a1778b902&=&format=webp&width=721&height=1024",   // manoplas shinjuku
+  walkie_mechamaru:       "https://media.discordapp.net/attachments/1531457215549018274/1534255490224099550/d445cec5e720da77fe319075001f8340.jpg?ex=6a737645&is=6a7224c5&hm=b4e7da0b1076eb15e25e23e3a8353edc1932057474d560b5a3ef3b777e97cf67&=&format=webp",   // walk talk do mechamaru
+  roda_oito_cabos:        "https://media.discordapp.net/attachments/1531457215549018274/1534255680788103238/3dc0686ce8ea19932a27c1867c2e1ce6.jpg?ex=6a737673&is=6a7224f3&hm=e2f2def9e30f9ad82b8ff9e420e97970c2ffdd5599a81fa4663d73883d8a0372&=&format=webp",
+  megafone:                "https://media.discordapp.net/attachments/1531457215549018274/1534255722097807461/2d928aea90c5a2da9b12ff5fb0284d5e.jpg?ex=6a73767d&is=6a7224fd&hm=ed5ce05a414bf7e9cbbcbf1b33e348ccc3436ac5522d4ae69b1658432bf22a0a&=&format=webp",   // megafone da fala amaldiçoada
+  dedo_sukuna:              "https://media.discordapp.net/attachments/1531457215549018274/1534255631832191117/5516a2efcf99c8a8e08a163a5d594686.jpg?ex=6a737667&is=6a7224e7&hm=d6aa8b7299372d49625691a19d0f65ca12e260232a48efb61c78fd23a5c15aa6&=&format=webp",   // fragmento de sukuna
+
+  galeria_extra_1:         "",
+  galeria_extra_2:         "",
+  galeria_extra_3:         "",
+  galeria_extra_4:         "",
+
+};
+
+/* aplica cada imagem no respectivo slot, mantendo o placeholder se vazio */
+function mountImage(slotId, url){
+  const slot = document.getElementById(slotId);
+  if(!slot || !url) return;
+  const img = document.createElement('img');
+  img.src = url;
+  img.alt = "";
+  slot.innerHTML = "";
+  slot.appendChild(img);
+}
+mountImage('slot-portrait', IMAGENS.retrato_principal);
+mountImage('slot-sukuna-retrato', IMAGENS.sukuna_retrato);
+mountImage('slot-domain',   IMAGENS.expansao_dominio);
+mountImage('slot-manoplas', IMAGENS.manoplas_shinjuku);
+mountImage('slot-walkie',   IMAGENS.walkie_mechamaru);
+mountImage('slot-roda',     IMAGENS.roda_oito_cabos);
+mountImage('slot-megafone', IMAGENS.megafone);
+mountImage('slot-dedo',     IMAGENS.dedo_sukuna);
+mountImage('slot-g1', IMAGENS.galeria_extra_1);
+mountImage('slot-g2', IMAGENS.galeria_extra_2);
+mountImage('slot-g3', IMAGENS.galeria_extra_3);
+mountImage('slot-g4', IMAGENS.galeria_extra_4);
+
+/* =====================================================================
+   ATRIBUTOS
+===================================================================== */
+const ATTRS = [
+  {name:'Físico', val:5},
+  {name:'Mente', val:4},
+  {name:'Vontade', val:4},
+  {name:'Dobra', val:5},
+];
+const attrGrid = document.getElementById('attr-grid');
+ATTRS.forEach(a=>{
+  const pips = Array.from({length:5},(_,i)=>`<span class="pip ${i<a.val?'on':''}"></span>`).join('');
+  attrGrid.innerHTML += `<div class="attr-card"><div class="name">${a.name}</div><div class="num">${a.val}</div><div class="pips">${pips}</div></div>`;
+});
+
+/* =====================================================================
+   PERÍCIAS
+===================================================================== */
+const SKILLS = {
+  'Físico': [['Luta / Armas Brancas',true],['Pontaria / Armas de Fogo',true],['Atletismo & Acrobacia',true],['Furtividade',false],['Sobrevivência & Imunidade',false]],
+  'Mente': [['Tecnologia / Hacking',false],['Ciência Quântica & Multiverso',false],['Medicina',false],['Percepção',false],['História das Realidades',false]],
+  'Vontade': [['Lábia',false],['Intimidação',false],['Persuasão',false],['Autocontrole & Resistência Mental',false],['Energia Bruta',false]],
+  'Dobra': [['Rastreamento de Fendas',false],['Manipulação Temporal',false],['Teletransporte Curto',true],['Barreira Espacial',false],['Análise de Anomalias',false]],
+};
+const skillGrid = document.getElementById('skill-grid');
+Object.entries(SKILLS).forEach(([cat, list])=>{
+  const items = list.map(([name,on])=>`<li class="${on?'trained':''}"><span class="mark">${on?'✓':'—'}</span>${name}</li>`).join('');
+  skillGrid.innerHTML += `<div class="skill-cat"><h3>${cat}</h3><ul>${items}</ul></div>`;
+});
+
+/* =====================================================================
+   RECURSOS — PV / EE / PPM
+===================================================================== */
+const RES = {
+  pv:  {cur:30, max:30},
+  ee:  {cur:23, max:23},
+  ppm: {cur:5,  max:5},
+};
+function renderRes(key){
+  const r = RES[key];
+  document.getElementById(key+'-val').textContent = r.cur;
+  document.getElementById(key+'-bar').style.width = Math.max(0,(r.cur/r.max*100))+'%';
+}
+function adjustRes(key, delta){
+  const r = RES[key];
+  r.cur = Math.min(r.max, Math.max(0, r.cur+delta));
+  renderRes(key);
+}
+function resetRes(key){ RES[key].cur = RES[key].max; renderRes(key); }
+['pv','ee','ppm'].forEach(renderRes);
+
+/* =====================================================================
+   SUKUNA — Fragmentos, bônus e técnicas desbloqueadas
+===================================================================== */
+let fragments = 2;
+const FRAG_MAX = 20;
+
+const UNLOCKS = [
+  {name:'Desmantelar',                    req:2,  imgKey:'sukuna_desmantelar'},
+  {name:'Expansão de Domínio Fechada',    req:5,  imgKey:'sukuna_dominio_fechado'},
+  {name:'Cleave',                          req:10, imgKey:'sukuna_cleave'},
+  {name:'Fuga',                            req:15, imgKey:'sukuna_fuga'},
+  {name:'Expansão de Domínio Completa',   req:20, imgKey:'sukuna_dominio_completo'},
+];
+
+function renderFragments(){
+  document.getElementById('frag-val').textContent = fragments;
+  document.getElementById('frag-bar').style.width = (fragments/FRAG_MAX*100)+'%';
+  document.getElementById('bonus-val').textContent = '+' + (2+fragments);
+
+  const list = document.getElementById('unlock-list');
+  list.innerHTML = UNLOCKS.map(u=>{
+    const unlocked = fragments >= u.req;
+    const url = IMAGENS[u.imgKey];
+    const thumbInner = url ? `<img src="${url}" alt="">` : `<div class="ph">${unlocked?'desbloqueada':'bloqueada'}</div>`;
+    return `<div class="unlock-row ${unlocked?'on':''}">
+      <div class="unlock-thumb">${thumbInner}</div>
+      <div class="unlock-name">${u.name}</div>
+      <div class="unlock-req">${u.req} Fragmentos</div>
+    </div>`;
+  }).join('');
+}
+function adjustFrag(delta){
+  fragments = Math.min(FRAG_MAX, Math.max(0, fragments+delta));
+  renderFragments();
+}
+renderFragments();
+</script>
+</body>
+</html>
